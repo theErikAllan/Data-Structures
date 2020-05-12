@@ -7,6 +7,8 @@ return elements in Last In First Out order.
 2. Re-implement the Stack class, this time using the linked list implementation as the underlying storage structure.
    Make sure the Stack tests pass.
 3. What is the difference between using an array vs. a linked list when implementing a Stack?
+
+RESPONSE TO 3. - The difference between using an array vs a linked list in a Stack lies in establishing the correct relationship between the existing data and data you want to add. With an array, we can simply push the new value to index 0 and increase the indices of existing data by 1, or we can pop the last value in an array and move on. With a Linked List, however, if we 
 """
 
 # class Stack:
