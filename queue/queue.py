@@ -8,6 +8,8 @@ return elements in First In First Out order.
    Make sure the Queue tests pass.
 3. What is the difference between using an array vs. a linked list when implementing a Queue?
 
+RESPONSE TO 3. - The difference between using an array vs a linked list when implementing a Queue lies in establishing the correct relationship between the existing data and data you want to add. With an array, we simply enqueue a value to the end of an array (i[len(array) - 1]) or dequeue a value from the front of the array (i[0]). However, with a Linked List, if we want to enqueue a value, we must create a new Node at the end, or tail of the Linked List and connect it to the previous tail Node. Additionally, if we want to remove a value, we dequeue the Node at the front, or head of the Linked List, and we establish the next Node as the new head of the Linked List.
+
    
 Stretch: What if you could only use instances of your Stack class to implement the Queue?
          What would that look like? How many Stacks would you need? Try it!
