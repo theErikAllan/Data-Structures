@@ -55,14 +55,20 @@ class BinarySearchTree:
     
     # this is an example of what contains() might look like if it was written as an iterative method instead of recursive
     def contains_iteratively(self, target):
+        # first, we set the current node to a variable
         current = self
+        # second, we create a while loop that will help us traverse the tree as long as the current node exists
         while current is not None:
+            # in the loop, we first check to see if the target value is less than the value of the current node, and if it is, we set the left node as the current node which allows us to move down the tree in the left direction
             if target < current.value:
                 current = current.left
+            # if the target value is not less than the value of the current node, we check to see if it is greater, and if it is, we set the right node as the current node which allows us to move down the tree in the right direction
             elif target > current.value:
                 current = current.right
+            # otherwise, we assume the target value is equal to the value of the current node so we return True and the loop ends
             else:
                 return True
+        # if the iterative method is unable to find the target value in any of the tree's nodes, we return False
         return False
 
     # Return the maximum value found in the tree
@@ -77,12 +83,19 @@ class BinarySearchTree:
         
     # this is an example of what get_max() might look like if it was written as an iterative method instead of recursive
     def get_max_iteratively(self):
+        # first, we set the value of the current node to a variable to track to the current maximum value
         max = self.value
+        # then we set the current node to a variable which will help us track which node we're looking at
         current = self
+        # next, we create a while loop that will traverse the tree
         while current:
+            # for each node we look at, we then check to see if the value of the current node is greater than the current maximum value
             if current.value > max:
+                # if the value of the current node is greater than the max variable, we set the value of the current node to be the new max value
                 max = current.value
+            # to traverse to the next node, we set the right node to be the new current node and the loop starts over - so the loop will break when current.right is None
             current = current.right
+        # finally, once the loop is done, we return the final value of max
         return max
 
     # Call the function `fn` on the value of each node
