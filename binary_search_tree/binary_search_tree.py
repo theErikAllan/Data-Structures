@@ -1,3 +1,6 @@
+from queue import Queue
+from stack import Stack
+
 """
 Binary search trees are a data structure that enforce an ordering over the data they store. That ordering in turn makes it a lot more efficient at searching for a particular piece of data in the tree. 
 
@@ -114,19 +117,42 @@ class BinarySearchTree:
     # Print all the values in order from low to high
     # Hint:  Use a recursive, depth first traversal
     def in_order_print(self, node):
-        pass
+        if node:
+            self.in_order_print(node.left)
+            print(node.value)
+            self.in_order_print(node.right)
+
 
     # Print the value of every node, starting with the given node,
     # in an iterative breadth first traversal
     def bft_print(self, node):
         # Use QUEUE for breadth first because First In First Out
-        pass
+        queue = Queue()
+        queue.enqueue(node)
+        while queue.size > 0:
+            # print(queue.head.value.value)
+            tracking_node = queue.dequeue()
+            print(tracking_node.value)
+            if tracking_node.left:
+                queue.enqueue(tracking_node.left)
+            if tracking_node.right:
+                queue.enqueue(tracking_node.right)
+            # print(tracking_node.value)
 
     # Print the value of every node, starting with the given node,
     # in an iterative depth first traversal
     def dft_print(self, node):
         # Use STACK for depth first because Last In First Out
-        pass
+        stack = Stack()
+        stack.push(node)
+        while stack.size > 0:
+            print(stack.head.value.value)
+            tracking_node = stack.pop()
+            if tracking_node.left:
+                stack.push(tracking_node.left)
+            if tracking_node.right:
+                stack.push(tracking_node.right)
+
 
     # Stretch Goals -------------------------
     # Note: Research may be required
